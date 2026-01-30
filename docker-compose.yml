@@ -8,8 +8,7 @@ services:
       # Port 8000 (HTTP-FLV) is handled internally by Coolify/Traefik
     environment:
       - NODE_ENV=production
-    volumes:
-      - ./bin/config.json:/node-media-server/bin/config.json:ro
+    # Config is baked into the image via Dockerfile COPY, no volume mount needed
     networks:
       - transcription-net
     healthcheck:
