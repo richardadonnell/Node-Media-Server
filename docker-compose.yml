@@ -4,8 +4,8 @@ services:
   node-media-server:
     build: .
     ports:
-      - "1935:1935"  # RTMP - exposed for StreamYard
-      - "8000:8000"  # HTTP-FLV playback (optional)
+      - "1935:1935"  # RTMP - exposed for StreamYard (required, non-HTTP)
+      # Port 8000 (HTTP-FLV) is handled internally by Coolify/Traefik
     environment:
       - NODE_ENV=production
     volumes:
